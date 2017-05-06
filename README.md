@@ -1,6 +1,16 @@
 # Extended Kalman Filter Project
-Simulated lidar and radar measurements are provided to detect a bicycle that travels around the vehicle. 
-Kalman filter, lidar measurements and radar measurements are used to track the bicycle's position and velocity.
+
+This project is about implementing Extended Kalman Filter (EKF) to locate objects (i.e. a bicycle) in real-time, using a data inputs from multiple sensors such as Laser and Radar. 
+
+This is a 3-step process-
+
+1. To predict position and velocity with some uncertainty. Here, we are predicting information based on current belief.
+2. Then measure position and velocity with some uncertainty using sensors.
+3. Finally, increase the certainty of our prediction by combining our prediction with the measurement information. Here belief is being updated with new information.
+
+Simulated lidar and radar measurements are provided to detect a bicycle that travels around the vehicle. While laser sensors represent measurements in cartesian coordinate, the radar sensors represent in polar coordinate. A direct conversion of polar coordinate to cartesian coordinate gives nonlinearity and so Kalman filter is no more useful. Hence, we have to be able to linearly map from the polar coordinate to the cartesian coordinate. 
+
+EKF uses the method called first order Taylor expansion to obtain linear approximation of the polar coordinate measurements. A Jacobian matrix is used, which represents linear mapping from polar to cartesian coordinate.
 
 ---
 
